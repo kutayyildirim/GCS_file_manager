@@ -43,7 +43,7 @@ GCS_BUCKET_NAME=gcs_file_manager_storage
 
 ### 2️⃣ Google Cloud Credentials
 Google Cloud Console üzerinden bir **Service Account** oluşturun ve `credentials.json` dosyasını indirin.  
-Bu dosyayı proje dizinine ekleyin (**GitHub'a yüklenmemelidir**).
+Bu dosyayı proje dizinine ekleyin.
 
 Docker ile çalışırken volume olarak mount edilir:
 ```yaml
@@ -62,8 +62,8 @@ docker-compose up --build
 | `/upload/` | POST | Dosya yükleme (`upload_file`) |
 | `/files/` | GET | Dosya listeleme (`list_files`) |
 | `/logs/` | GET | Log listeleme (`list_logs`) |
-| `/files/<filename>/delete/` | DELETE | Dosya silme (`delete_file_view`) |
-| `/files/<filename>/download/` | GET | Dosya indirme / Signed URL (`download_file_view`) |
+| `/files/<file id>/delete/` | DELETE | Dosya silme (`delete_file_view`) |
+| `/files/<file id>/download/` | GET | Dosya indirme / Signed URL (`download_file_view`) |
 
 ---
 
@@ -79,7 +79,7 @@ gcs_file_manager/
 │   ├── views/               # API endpoint view'leri
 │── docker-compose.yml
 │── Dockerfile
-│── credentials.json         # GCS servis hesabı (ignore edilir)
+│── credentials.json         # GCS servis hesabı
 │── .env                     # Ortam değişkenleri
 │── README.md
 │── requirements.txt
